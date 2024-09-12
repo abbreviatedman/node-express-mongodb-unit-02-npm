@@ -21,21 +21,27 @@
 
 Before taking any action, it's important to be in the _**root directory**_ of your application via the terminal. That means you should see **FINAL.js**, **START.js**, and **index.js** if you use the `ls` command in the terminal. From now on, we will use **index.js** instead of **PROG.js** because this is standard for a Node application. This is similar to the way **index.html** is the standard for the default web page name.
 
-Once you are in the correct place in terminal, use the following command to initialize a node project:
+One way we can ensure we're in the right place is to use VS Code to open an integrated terminal where the file is. You can pull up a menu on that particular file in VS Code's file explorer and choose "Open In Integrated Terminal". You have to do what's typically called a "secondary click" on the file to pull up this menu. This is typically done in one of three ways:
+
+- holding the control key as you click
+- clicking with the right button on a mouse or trackpad with multiple buttons
+- tapping with two fingers spaced about a half inch apart 
+
+Doing one of these secondary clicks on a file ought to pull up a menu, and on that menu should be "Open In Integrated Terminal". Choosing that option will always open the terminal in the correct location for the file you clicked.
+
+Once you are in the correct place in the terminal, use the following command to initialize a node project:
 
 0. A) In terminal, initialize the project
-<!-- 0a. In terminal, initialize the project -->
 
 ```
 npm init -y
 ```
 
-When this is done for the first time, a **package.json** should appear. Open the file. There should be a property that says `"main": "index.js",`. If it says `"main": "FINAL.js",` instead, edit this file to say `"main": "index.js",`. Most things in a **package.json** file should never be edited, but for the sake of learning about Node applications correctly, these small details must be aligned correctly.
+When this is done for the first time, a **package.json** should appear. Open the file. There should be a property that says `"main": "index.js",`. If it says `"main": "final.js",` instead, edit this file to say `"main": "index.js",`. Most things in a **package.json** file should never be edited, but for the sake of learning about Node applications correctly, these small details must be aligned correctly.
 
 Once this is prepared, use the following command to install the Express module:
 
 0. B) In terminal, install the express module
-<!-- 0b. In terminal, install the express module -->
 
 ```
 npm install express
@@ -63,7 +69,6 @@ It's time to begin building out our first server file!
 Import the Express module, and prepare a variable that immediately invokes the Express function:
 
 1. Import the express module, and prepare a ready-to-use variable for it
-<!-- 1. Import the express module, and prepare a ready-to-use variable for it -->
 
 ```js
 const express = require("express"); // Import the module
@@ -73,7 +78,6 @@ const app = express(); // Ready-to-use variable
 Let's set up the port on our local machine that we want to use:
 
 2. Set the Port we want to use
-<!-- 2. Set the Port we want to use -->
 
 ```js
 const PORT = 3000; // 3000 and 8080 are commonly used ports for development
@@ -82,7 +86,6 @@ const PORT = 3000; // 3000 and 8080 are commonly used ports for development
 Now it's time to make sure the server can start up, and listen to requests:
 
 3. Set the application to begin listening / begin spinning the server
-<!-- 3. Set the application to begin listening / begin spinning the server -->
 
 ```js
 app.listen(PORT, () => {
@@ -95,7 +98,6 @@ Now run `node index.js` in your terminal to find out if your server is working s
 Next, we will be setting up how to respond to requests at `localhost:3000/` and similar URLs, starting with the base URL:
 
 4. Set up a response to localhost:3000/
-<!-- 4. Set up a response to localhost:3000/ -->
 
 ```js
 app.get("/", (req, res) => {
@@ -125,7 +127,6 @@ A status code is a message a website's server sends to the browser to indicate w
 Next, we will set up a response to `localhost:3000/about` to make sure we can access more than one page:
 
 5. Set up a response to localhost:3000/about
-<!-- 5. Set up a response to localhost:3000/about -->
 
 ```js
 app.get("/about", (req, res) => {
@@ -136,7 +137,6 @@ app.get("/about", (req, res) => {
 Finally, it's time to set up for ALL OTHER URL extensions, and return a `404` status code, because there are no other resources to access:
 
 6. Set up a response to localhost:3000/\*
-<!-- 6. Set up a response to localhost:3000/* -->
 
 ```js
 // * means all, any page that isn't listed so far. So if you reach localhost:3000/* this should be the response
@@ -149,6 +149,6 @@ An asterisk `*` is commonly used to represent "anything" when it comes to settin
 
 ## What is an API
 
-API is an acronym that stands for "Application Programming Interface" which is a way for two or more computer programs to communicate with each other. A server can host an API. When you create a server that responds to various requests with different forms of data, this is called an API! (This can mean serving HTML vs serving JSON, or it can mean serving all text but the contents of each text is different).
+API is an acronym that stands for "Application Programming Interface", which is a way for two or more computer programs to communicate with each other. A server can host an API. When you create a server that responds to various requests with different forms of data, this is called an API! (This can mean serving HTML vs serving JSON, or it can mean serving all text but the contents of each text is different).
 
 By completing this lesson, you have created an API.
