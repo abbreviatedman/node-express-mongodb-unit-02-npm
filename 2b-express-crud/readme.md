@@ -16,7 +16,6 @@ In this section of the lesson, we will be learning how to interact with data thr
 Of course before we get started, we have to initialize the application:
 
 0. A) In terminal, initialize the project
-<!-- 0a. In terminal, initialize the project -->
 
 ```
 npm init -y
@@ -25,7 +24,6 @@ npm init -y
 Also install the necessary modules:
 
 0. B) In terminal, install the express module and morgan module
-<!-- 0b. In terminal, install the express module and morgan module -->
 
 ```
 npm install express morgan
@@ -81,7 +79,6 @@ CRUD is an acronym that refers to the 4 functions that are considered necessary 
 Let's finally get started on working in **index.js**:
 
 1. Import express & Morgan, set up app variable
-<!-- 1. Import express & Morgan, set up app variable -->
 
 ```js
 const express = require("express");
@@ -94,7 +91,6 @@ Where I do `const logger = require("morgan")`, take note that the name of the va
 Next, let's set up some middleware that allows our API to receive JSON and accept dynamic parameters in the URL:
 
 2. Set up middleware to read requests better
-<!-- 2. Set up middleware to read requests better -->
 
 ```js
 // Helps to see outgoing req.body object
@@ -108,7 +104,6 @@ app.use(express.urlencoded({ extended: false }));
 There is no database yet, so we will be testing things with this local set of data. Let's write it in:
 
 3. Set up local data to work with
-<!-- 3. Set up local data to work with -->
 
 ```js
 let pokeData = [
@@ -130,7 +125,6 @@ let pokeData = [
 Next, we're going to set up a GET request handler for `localhost:3000/` where the client will receive the local data we just set up:
 
 4. Handle get requests to localhost:3000/
-<!-- 4. Handle get requests to localhost:3000/ -->
 
 ```js
 app.get("/", (req, res) => {
@@ -142,7 +136,6 @@ app.get("/", (req, res) => {
 Don't forget the `.listen()` function at the bottom!
 
 4. B) Set up PORT and begin listening to requests
-<!-- 4b. Set up PORT and begin listening to requests -->
 
 ```js
 const PORT = 3000;
@@ -163,7 +156,6 @@ Let's go back into the `app.get()` function and set up the ability to get a spec
 Queries are a way to ask for information by placing text after the URL extention. URL extensions can be used to reach different web pages, but the text beyond that can be captured in order to search a database for specific items. For example, if we want to target `pikachu` within our data, the URL should read `localhost:3000/?name=pikachu`. The `?name=pikachu` is the query, `req.query` is what holds the value `{name:"pikachu"}`.
 
 5. Handle query requests
-<!-- 5. Handle query requests -->
 
 ```js
 // 5a. Collect the query from the request object
@@ -210,7 +202,6 @@ Note: If you are unsure where values are coming from / going, make sure to conso
 Next is the POST request. When testing this in Postman, look under the URL where it says "Params Auth Headers Body" and select `Body`. From the dropdown that says "none" by default, change it to `raw` and change the next dropdown that says "text" to `JSON`. The object written in there will be represented by `req.body`.
 
 6. Handle post requests to localhost:3000/
-<!-- 6. Handle post requests to localhost:3000/ -->
 
 ```js
 app.post("/", (req, res) => {
@@ -259,7 +250,6 @@ app.post("/", (req, res) => {
 Next is the PUT request. Here we will use something called Dynamic Parameters to target the data we would like to edit/update. The `/:name` means that if the URL is `localhost:3000/pikachu`, the `req.params` will be `{name:pikachu}`. It's similar to the Query, but Queries are usually used for filtering large data (look at the URL when navigating products on a website such as Adidas.com) while Dynamic Parameters are used for targeting specific data points in a database.
 
 7. Handle put requests to localhost:3000/:name
-<!-- 7. Handle put requests to localhost:3000/:name -->
 
 ```js
 app.put("/:name", (req, res) => {
@@ -301,7 +291,6 @@ app.put("/:name", (req, res) => {
 Next is the DELETE request. Again, we will be using Dynamic Parameters
 
 8. Handle delete requests to localhost:3000/name
-<!-- 8. Handle delete requests to localhost:3000/name -->
 
 ```js
 app.delete("/:name", (req, res) => {
@@ -338,7 +327,6 @@ app.delete("/:name", (req, res) => {
 Finally, let's cover all unhandled URL extensions:
 
 9. Handle any unhandled URL extensions as an error
-<!-- 9. Handle any unhandled URL extensions as an error -->
 
 ```js
 app.all("*", (req, res) => {
