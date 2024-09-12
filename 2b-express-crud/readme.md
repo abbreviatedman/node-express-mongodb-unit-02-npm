@@ -230,7 +230,7 @@ app.post("/", (req, res) => {
 ```
 
 - Run the server by going to the terminal and using the command `node index.js`
-- Use Postman to perform a POST request to `localhost:3000/` and in the Body tab (set text to JSON) use the following to test this request:
+- Use Postman to perform a POST request to `localhost:3000/` and in the Body tab (set text to raw JSON) use the following to test this request:
 
 ```js
 {
@@ -283,7 +283,7 @@ app.put("/:name", (req, res) => {
 ```
 
 - Run the server by going to the terminal and using the command `node index.js`
-- Use Postman to perform a PUT request to `localhost:3000/:name` and in the Body tab (set text to JSON), make sure to fill it with the keys that match the keys of the original data, and fill the values with unique values. Also test a name that doesn't match the data, so you can see what a failure looks like.
+- Use Postman to perform a PUT request to `localhost:3000/:name` and in the Body tab (set text to raw JSON), make sure to fill it with the keys that match the keys of the original data, and fill the values with unique values. Also test a name that doesn't match the data, so you can see what a failure looks like.
 - Once it works, cut the server off by pressing `ctrl + c` in the terminal
 
 ---
