@@ -160,7 +160,7 @@ res.status(200).send("Home page");
 And you've also seen how to send JSON using the HTTP module:
 
 ``` js
-res.writeHead(200, {'Content-Type': 'application/json});
+res.writeHead(200, {'Content-Type': 'application/json'});
 res.write(JSON.stringify({name: 'Colin', age: 44, hobbies: ['emacs', 'board games']}));
 ```
 
