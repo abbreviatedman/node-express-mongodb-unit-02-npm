@@ -1,4 +1,4 @@
-# Lesson 2E: Simple Movie App
+# Lesson 2F: Simple Movie App
 
 ---
 
