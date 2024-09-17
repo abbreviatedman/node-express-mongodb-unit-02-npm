@@ -20,15 +20,11 @@ By the end of this lesson, we will have a functioning application that searches 
 
 As usual, since we are creating a new project we should initialize with the following command:
 
-<!-- 0a. Initialize the project -->
-
 ```
 npm init -y
 ```
 
 Install the necessary modules:
-
-<!-- 0b. Install Modules -->
 
 ```
 npm install express morgan axios ejs uuid
@@ -45,7 +41,6 @@ For this lesson, we will only edit the following files:
 Writing the base server file should become more and more familiar. There are still things to learn, so let's go through this step by step.
 
 1. Import Express, Morgan, and Path. Set up app variable.
-<!-- 1. Import Express, Morgan, Path, and set up app variable -->
 
 ```js
 const express = require("express");
@@ -57,7 +52,6 @@ const path = require("path");
 In this project, we will get an opportunity to practice some CSS. In order for HTML to interact with CSS, we will use the Path module to allow the directories to communicate with each other, regardless of what machine the application lives on:
 
 2. Set up middleware
-<!-- 2. Set up middleware -->
 
 ```js
 // view engine setup
@@ -74,7 +68,6 @@ app.use(logger("dev"));
 ```
 
 3. Set up the port and begin listening
-<!-- 3. Set up the port and begin listening -->
 
 ```js
 const PORT = 3000;
@@ -91,7 +84,6 @@ app.listen(PORT, () => {
 Next, we will import the router. The commented out line is so that you can test the working version of the application. Only one of these lines should be un-commented BEFORE starting up the server.
 
 4. Import the Router file
-<!-- 4. Import Router files -->
 
 ```js
 const indexRouter = require("./routes/indexRouter");
@@ -99,7 +91,6 @@ const indexRouter = require("./routes/indexRouter");
 ```
 
 5. Set up the URL routes to connect to the router
-<!-- 5. Set up the URL routes to connect to the router -->
 
 ```js
 app.use("/", indexRouter);
@@ -110,7 +101,6 @@ Now that the base server is set up, let's begin writing the **`indexRouter.js`**
 ## ./routes/indexRouter
 
 6. Import Express and axios. Set up Router variable
-<!-- 6. Import Express and axios. Set up Router variable -->
 
 ```js
 const express = require("express");
@@ -130,7 +120,6 @@ Any line (for example, line 54) that is in between these characters `<% { %>` is
 When we arrive to the homepage by going to `localhost:3000/`, there should be no data. We will render the homepage without it:
 
 7. Set up homepage, respond with no data yet.
-<!-- 7. Set up homepage, respond with no data yet. -->
 
 ```js
 router.get("/", function (req, res) {
@@ -162,7 +151,6 @@ Finally, we're going to set up an axios call to search the `themoviedb` API, and
 Here is what that looks like:
 
 9. Set up a response to using the search form
-<!-- 9. Set up a response to using the search form -->
 
 ```js
 router.get("/search-movie", async (req, res) => {
