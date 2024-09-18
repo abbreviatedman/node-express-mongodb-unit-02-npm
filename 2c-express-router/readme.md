@@ -20,23 +20,17 @@ As our Node applications are expanding, the codebase can become messy and diffic
 
 As usual, since we are creating a new project we should initialize with the following command:
 
-<!-- 0a. Initialize the project -->
-
 ```
 npm init -y
 ```
 
 Install the necessary modules:
 
-<!-- 0b. Install Express & Morgan -->
-
 ```
 npm install express morgan
 ```
 
 And we are going to install a module called `uuid` that will auto generate unique ID's for each item in our data
-
-<!-- 0c. Install the uuid module -->
 
 ```
 npm install uuid
@@ -47,7 +41,6 @@ npm install uuid
 On **index.js**, the first thing to do is to import the proper modules:
 
 1. Import express & Morgan, set up app variable
-<!-- 1. Import express & Morgan, set up app variable -->
 
 ```js
 const express = require("express");
@@ -58,7 +51,6 @@ const app = express();
 Next, we set up our middleware functionality:
 
 2. Set up middleware
-<!-- 2. Set up middleware -->
 
 ```js
 // Can accept incoming JSON data
@@ -72,7 +64,6 @@ app.use(logger("dev"));
 Next, we will be importing the router files. Instead of having `app.get()` repeatedly on the main server file, we will be writing large chunks of code in **./routes/filmRouter.js** so that there is a dedicated file to this functionality.
 
 3. Import Router files
-<!-- 3. Import Router files -->
 
 ```js
 const filmRouter = require("./routes/filmRouter");
@@ -81,7 +72,6 @@ const filmRouter = require("./routes/filmRouter");
 Since we are splitting up the routes, we should also split up the URL up as well:
 
 4. Set up the URL routes to connect to each router
-<!-- 4. Set up the URL routes to connect to each router -->
 
 ```js
 // localhost:3000/api/film
@@ -93,7 +83,6 @@ This means that `localhost:3000/api/film` is what the URL will always begin with
 Finally, let's set up the Port and have the server listen on port 3000:
 
 5. Set up the port and begin listening
-<!-- 5. Set up the port and begin listening -->
 
 ```js
 const PORT = 3000;
@@ -110,7 +99,6 @@ It's time to begin writing on **filmRouter.js**.
 Begin by importing the `express` and `uuid` modules, and setting up the `router` object:
 
 6. Import express & uuid, set up router
-<!-- 6. Import express & uuid, set up router -->
 
 ```js
 const express = require("express");
@@ -124,7 +112,6 @@ The router object will be exported at the end of this page, and is already impor
 Next, let's set up our local data. Every time we run the server, the ID's will be auto generated using `uuidv4()`:
 
 7. Create an array of your favorite films using uuidv4() for unique ID's
-<!-- 7. Create an array of your favorite films using uuidv4() for unique ID's -->
 
 ```js
 let filmArray = [
@@ -154,7 +141,6 @@ let filmArray = [
 Next, we will write the first GET request so that we can see our data in Postman. We will also export the router so we can test this:
 
 8. Handle GET requests to /v1/query
-<!-- 8. Handle GET requests to /v1/query -->
 
 ```js
 router.get("/v1/query" function (req, res) {
@@ -174,7 +160,6 @@ module.exports = router;
 - Once it works, cut the server off by pressing `ctrl + c` in the terminal
 
 9. Handle POST requests to /v1/create-film
-<!-- 9. Handle POST requests to /v1/create-film -->
 
 ```js
 router.post("/v1/create-film", function (req, res) {
@@ -214,7 +199,6 @@ router.post("/v1/create-film", function (req, res) {
 - Once it works, cut the server off by pressing `ctrl + c` in the terminal
 
 10. Handle PUT requests to /v1/update-by-id/:id
-<!-- 10. Handle PUT requests to /v1/update-by-id/:id -->
 
 ```js
 router.put("/v1/update-by-id/:id", function (req, res) {
@@ -260,7 +244,6 @@ router.put("/v1/update-by-id/:id", function (req, res) {
 - Once it works, cut the server off by pressing `ctrl + c` in the terminal
 
 11. Handle DELETE requests to /v1/delete-film-by-id/:id
-<!-- 11. Handle DELETE requests to /v1/delete-film-by-id/:id -->
 
 ```js
 router.delete("/v1/delete-film-by-id/:id", function (req, res) {
@@ -297,7 +280,6 @@ router.delete("/v1/delete-film-by-id/:id", function (req, res) {
 We can apply a method of sorting our data using queries in the parameters of the URL (Postman will use a Parameters tab as a helpful redundancy).
 
 12. Create sort method for the films
-<!-- 12. Create sort method for the films -->
 
 ```js
 function sortMethodAsc(data, sortOrder, sortBy) {
