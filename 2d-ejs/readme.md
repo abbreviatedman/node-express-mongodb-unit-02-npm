@@ -21,7 +21,6 @@ Until we get to creating React applications on the front-end and attaching it to
 Let's get started by installing the necessary modules for today's project. You are given some starter files with a _**package.json**_, so use the following command:
 
 0. Install the necessary modules
-<!-- 0. Install the necessary modules -->
 
 ```
 npm install
@@ -53,7 +52,6 @@ module.exports = router;
 Now that we have the response working, let's begin writing in our **./views/home.ejs** file and test our ability to see it in the browser.
 
 1. Create a basic webpage
-<!-- 1. Create a basic webpage -->
 
 ```html
 <!DOCTYPE html>
@@ -86,7 +84,6 @@ Now that we have the response working, let's begin writing in our **./views/home
 Head back into **./routes/indexRouter.js** and render the "home" file:
 
 2. Render the Home file
-<!-- 2. Render the Home file -->
 
 ```js
 router.get("/", (req, res) => {
@@ -139,7 +136,6 @@ When using EJS syntax, you will use a different character after the first openin
 With this knowledge, let's go back to our **./views/home.ejs** and import it where it was before:
 
 3. D) Where the nav bar was removed, import the partial
-<!-- 3. D) Where the nav bar was removed, import the partial -->
 
 ```js
 <%- include("./partials/navbar") %>
@@ -170,7 +166,6 @@ We can take this further and move the `<head></head>` tag in another file as wel
 4. C) Paste it directly into the **./views/partials/navbar.ejs** file
 
 5. D) Where the head tag was removed, import the partial
-<!-- 4. D) Where the head tag was removed, import the partial -->
 
 ```js
 <%- include("./partials/head") %>
@@ -181,7 +176,6 @@ We can take this further and move the `<head></head>` tag in another file as wel
 EJS allows you to render the page with data that comes from the server, and inject it directly into the HTML. Head back into **./routes/indexRouter** and render the homepage with data:
 
 5. A) Render the Home file with data
-<!-- 5. A) Render the Home file with data -->
 
 ```js
 router.get("/", (req, res) => {
@@ -223,7 +217,6 @@ Conditional rendering is when you only render elements onto a page if the inject
 Let's take a look at a small example:
 
 6. A) Try using an if statement using EJS syntax
-<!-- 6. A) Try using an if statement using EJS syntax -->
 
 ```html
 <% if (3 > 4) { %>
@@ -236,7 +229,6 @@ The element will no longer render under these conditions. You can even inspect t
 Here's an example of how log in sessions might work. Edit your **indexRouter.js** to render the home page like this:
 
 6. B) Update your **indexRouter.js** file
-<!-- 6. B) Update your **indexRouter.js** file -->
 
 ```js
 res.render("home", { name: "Brian Carela", loggedIn: true });
@@ -245,7 +237,6 @@ res.render("home", { name: "Brian Carela", loggedIn: true });
 Now head to the nav bar and include some conditional rendering:
 
 6. C) Edit your **navbar.ejs** file
-<!-- 6. C) Edit your **navbar.ejs** file -->
 
 ```html
 <% if(loggedIn) { %>
@@ -262,7 +253,6 @@ This is another form of conditional rendering. We just saw how using `if()` stat
 Go to your **home.ejs** file to edit the following:
 
 7. Try using a for loop using EJS syntax
-<!-- 7. Try using a for loop using EJS syntax -->
 
 ```js
 <% for(let i = 0; i < 4; i++) { %>
@@ -296,7 +286,6 @@ const teachersArr = [
 ```
 
 8. B) Set up a response to the URL extension `localhost:3000/teachers`. Remember to send in the `teachersArr` variable so that we can manage the data later
-<!-- 8. B) Set up a response to the URL extension `localhost:3000/teachers` -->
 
 ```js
 router.get("/teachers", (req, res) => {
@@ -309,7 +298,6 @@ router.get("/teachers", (req, res) => {
 ```
 
 8. C) Create **./views/teachers.ejs** and write on that file:
-<!-- 8. C) Create **./views/teachers.ejs** and write on that file: -->
 
 ```html
 <!DOCTYPE html>
@@ -330,7 +318,6 @@ Note that this file is very slim, thanks to our partials.
 Now that we've tested that the page works, let's begin rendering new elements and populating it with data.
 
 9. A) Use a `forEach()` function to loop over the array elements and render some elements
-<!-- 9. A) Use a `forEach()` function to loop over the array elements and render some elements -->
 
 ```html
 <% teachers.forEach((teacher)=> { %>
@@ -345,7 +332,6 @@ Now that we've tested that the page works, let's begin rendering new elements an
 Now let's take advantage of conditional rendering to change up the style a bit
 
 9. B) Use an `if()` statement to change the style of the teacher cards:
-<!-- 9. B) Use an `if()` statement to change the style of the teacher cards: -->
 
 ```html
 <% teachers.forEach((teacher)=> { %> <% if(teacher.leadingClass) { %>
