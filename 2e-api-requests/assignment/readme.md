@@ -1,4 +1,4 @@
-# Lesson 2D: One-Pager Assignment
+# Lesson 2E: One-Pager Assignment
 
 ---
 

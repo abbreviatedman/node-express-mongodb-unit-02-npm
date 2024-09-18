@@ -1,4 +1,4 @@
-# Lesson 2D: API Requests
+# Lesson 2E: API Requests
 
 ---
 
