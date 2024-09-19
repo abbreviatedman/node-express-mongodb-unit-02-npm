@@ -19,9 +19,9 @@ app.use(express.json());
 /*
     Routing
 */
-const villagerRouter = require("./routes/villagerRouter");
+const summersRouter = require("./routes/summersRouter");
 
-app.use("/villagers", villagerRouter);
+app.use("/summers", summersRouter);
 
 /*
     Listening
